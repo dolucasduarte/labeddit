@@ -26,10 +26,10 @@ export const AuthPageContainer = styled.div`
   }
 
   form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
   }
 
   input {
@@ -49,21 +49,21 @@ export const AuthPageContainer = styled.div`
     }
   }
 
-   button {
+  button {
     height: 3em;
-  width: 15em;
-  border: none;
-  background-color: #137bd0;
-  color: #ffffff;
-  border-radius: 5px;
-  font-weight: 900;
-  text-transform: uppercase;
-  margin: 1em 0 2em 0;
+    width: 15em;
+    border: none;
+    background-color: #137bd0;
+    color: #ffffff;
+    border-radius: 5px;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin: 1em 0 2em 0;
 
-  &:hover {
-    background-color: #3f79a8;
+    &:hover {
+      background-color: #3f79a8;
+    }
   }
-   }
 
   span {
     color: #242728;
