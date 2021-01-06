@@ -1,18 +1,36 @@
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import logoIcon from "../images/logo-icon.svg";
 import { AuthPageContainer } from "../styles/authPages";
 import { EmailInput, PasswordInput } from "../components/Inputs";
+import useForm from "../hooks/useForm";
+import { signIn } from "../services/api";
 
 function SignInPage() {
+  const history = useHistory();
+
+  const { form, onChange } = useForm({
+    email: "",
+    password: ""
+  });
+
+  const login = event => {
+    event.preventDefault();
+    const body = {
+      email: form.email,
+      password: form.password
+    };
+    signIn(body, history);
+  };
+
   return (
     <AuthPageContainer>
-      <form>
+      <form onSubmit={login}>
         <img src={logoIcon} alt="Reddit logo icon" />
         <h1>
           Welcome back! <strong>Sign in</strong>.
         </h1>
-        <EmailInput />
-        <PasswordInput />
+        <EmailInput onChange={onChange} form={form} />
+        <PasswordInput onChange={onChange} form={form} />
         <button>Sign in</button>
       </form>
       <span>
