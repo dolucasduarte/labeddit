@@ -42,4 +42,19 @@ const createPost = (body, resetForm) => {
     });
 };
 
-export { signUp, signIn, createPost };
+const getPosts = setData => {
+  api
+    .get("posts", {
+      headers: {
+        authorization: localStorage.getItem("token")
+      }
+    })
+    .then(response => {
+      setData(response.data);
+    })
+    .catch(error => {
+      alert("Erro ao carregar posts");
+    });
+};
+
+export { signUp, signIn, createPost, getPosts };
