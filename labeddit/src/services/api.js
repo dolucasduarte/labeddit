@@ -1,12 +1,12 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://us-central1-labenu-apis.cloudfunctions.net/labEddit"
+  baseURL: "https://us-central1-labenu-apis.cloudfunctions.net/labEddit/"
 });
 
 const signUp = (body, history) => {
   api
-    .post("/signup", body)
+    .post("signup", body)
     .then(response => {
       localStorage.setItem("token", response.data.token);
       history.push("/");
@@ -28,4 +28,18 @@ const signIn = (body, history) => {
     });
 };
 
-export { signUp, signIn };
+const createPost = (body, resetForm) => {
+  api
+    .post("posts", body, {
+      headers: { authorization: localStorage.getItem("token") }
+    })
+    .then(response => {
+      alert("Sucesso");
+      resetForm();
+    })
+    .catch(error => {
+      alert("Fracasso");
+    });
+};
+
+export { signUp, signIn, createPost };

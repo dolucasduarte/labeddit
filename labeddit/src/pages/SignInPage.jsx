@@ -13,7 +13,7 @@ function SignInPage() {
     password: ""
   });
 
-  const login = event => {
+  const submitSignIn = event => {
     event.preventDefault();
     const body = {
       email: form.email,
@@ -24,7 +24,7 @@ function SignInPage() {
 
   return (
     <AuthPageContainer>
-      <form onSubmit={login}>
+      <form onSubmit={submitSignIn}>
         <img src={logoIcon} alt="Reddit logo icon" />
         <h1>
           Welcome back! <strong>Sign in</strong>.

@@ -9,11 +9,11 @@ const useForm = initialState => {
     setForm(newForm);
   };
 
-  const resetState = () => {
+  const resetForm = () => {
     setForm(initialState);
   };
 
-  return { form, onChange, resetState };
+  return { form, onChange, resetForm };
 };
 
 export default useForm;

@@ -47,4 +47,32 @@ function PasswordInput({ form, onChange }) {
   );
 }
 
-export { UsernameInput, PasswordInput, EmailInput };
+function TitleInput({ form, onChange }) {
+  return (
+    <input
+      id="title"
+      name="title"
+      type="text"
+      placeholder="Title"
+      onChange={onChange}
+      value={form.title}
+      required
+    />
+  );
+}
+
+function PostTextArea({ form, onChange }) {
+  return (
+    <textarea
+      id="text"
+      name="text"
+      type="text"
+      placeholder="Text"
+      onChange={onChange}
+      value={form.text}
+      required
+    />
+  );
+}
+
+export { UsernameInput, PasswordInput, EmailInput, TitleInput, PostTextArea };
