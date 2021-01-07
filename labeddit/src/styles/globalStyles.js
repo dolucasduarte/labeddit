@@ -4,15 +4,18 @@ const GlobalStyle = createGlobalStyle`
 body {
     margin: 0;
     padding: 0;
-    background: ##F7F7F7;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    background: #dae0e6;
+    
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 a, button {
     cursor: pointer;
 }
-
 `;
 
 export default GlobalStyle;

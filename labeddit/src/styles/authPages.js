@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
 export const AuthPageContainer = styled.div`
-  width: 100vw;
   height: 100vh;
+  width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(180deg, #f6f7f8 0%, #f6f6f6 100%);
+  background: #dae0e6;
 
   img {
     height: 4.5em;

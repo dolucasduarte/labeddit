@@ -1,5 +1,11 @@
+import PostForm from "../components/PostForm";
+
 function FeedPage() {
-  return <div>Feed Page</div>;
+  return (
+    <div>
+      <PostForm />
+    </div>
+  );
 }
 
 export default FeedPage;
