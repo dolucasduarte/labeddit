@@ -6,7 +6,6 @@ export const CardContainer = styled.div`
   min-height: 10em;
   border-radius: 0.5em 0.5em 0.5em 0.5em;
   border: 1px solid #cccccc;
-
   margin-top: 1em;
 
   @media (max-width: 500px) {
@@ -43,7 +42,7 @@ export const VotingBarContainer = styled.div`
   }
 `;
 
-export const PostContainer = styled.div`
+export const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;

@@ -11,17 +11,23 @@ export const PostFormContainer = styled.div`
   border-radius: 0.5em;
   margin: 5em 0 2em 0;
 
+  @media (max-width: 500px) {
+    width: 100vw;
+    align-self: center;
+  }
+
   form {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     width: 90%;
   }
 
   h4 {
     font-weight: 400;
     color: #1c1c1c;
+    align-self: flex-start;
   }
 
   input {

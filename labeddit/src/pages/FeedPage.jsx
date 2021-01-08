@@ -1,17 +1,19 @@
-import { FeedPageContainer } from "../styles/feedPage";
+import { useState, useEffect } from "react";
+import { FeedPageContainer } from "../styles/pages/feedPage";
 import PostForm from "../components/PostForm";
 import PostCard from "../components/PostCard";
-import useRequestData from "../hooks/useRequestData";
-import { getPosts } from "../services/api";
-import loadingIcon from "../images/logo-icon.svg";
-import { LoadingContainer } from "../styles/loading";
+import Loading from "../components/Loading";
+import { getPosts } from "../services/get";
 
 function FeedPage() {
-  const { data } = useRequestData([], getPosts);
-  const posts = data.posts;
+  const [posts, setPosts] = useState();
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    getPosts(setPosts, setIsLoading);
+  }, []);
 
   const renderPosts = () => {
-    console.log({ posts });
     return posts
       .sort((a, b) => {
         return b.createdAt - a.createdAt;
@@ -23,15 +25,8 @@ function FeedPage() {
 
   return (
     <FeedPageContainer>
-      <PostForm />
-      {posts && posts.length > 0 ? (
-        renderPosts()
-      ) : (
-        <LoadingContainer>
-          <img src={loadingIcon} alt="Loading" />
-          <span>Loading posts</span>
-        </LoadingContainer>
-      )}
+      <PostForm updatePosts={setPosts} />
+      {isLoading ? <Loading /> : renderPosts()}
     </FeedPageContainer>
   );
 }

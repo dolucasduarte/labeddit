@@ -1,9 +1,9 @@
 import { PostFormContainer } from "../styles/components/postForm";
 import { TitleInput, PostTextArea } from "./Inputs";
 import useForm from "../hooks/useForm";
-import { createPost } from "../services/api";
+import { createPost } from "../services/post";
 
-function PostForm() {
+function PostForm({ updatePosts }) {
   const { form, onChange, resetForm } = useForm({
     title: "",
     text: ""
@@ -15,7 +15,7 @@ function PostForm() {
       text: form.text,
       title: form.title
     };
-    createPost(body, resetForm);
+    createPost(body, resetForm, updatePosts);
   };
 
   return (
