@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { votePost } from "../services/api";
+import { voteOnPost } from "../services/put";
 import { VotingBarContainer } from "../styles/components/postCard";
 import arrowDownSelected from "../images/arrow-down-selected.svg";
 import arrowDownUnselected from "../images/arrow-down-unselected.svg";
@@ -32,7 +32,7 @@ function VoteBar({ id, votesCount, userVoteDirection }) {
       direction: vote
     };
 
-    votePost(body, id);
+    voteOnPost(body, id);
   };
 
   return (

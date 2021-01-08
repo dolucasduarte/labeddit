@@ -1,15 +1,19 @@
+import { useState, useEffect } from "react";
 import { FeedPageContainer } from "../styles/pages/feedPage";
 import PostForm from "../components/PostForm";
 import PostCard from "../components/PostCard";
-import useRequestData from "../hooks/useRequestData";
 import Loading from "../components/Loading";
+import { getPosts } from "../services/get";
 
 function FeedPage() {
-  const { data, requestData } = useRequestData([], "posts");
-  const posts = data.posts;
+  const [posts, setPosts] = useState();
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    getPosts(setPosts, setIsLoading);
+  }, []);
 
   const renderPosts = () => {
-    console.log({ posts });
     return posts
       .sort((a, b) => {
         return b.createdAt - a.createdAt;
@@ -21,8 +25,8 @@ function FeedPage() {
 
   return (
     <FeedPageContainer>
-      <PostForm requestData={requestData} />
-      {posts && posts.length > 0 ? renderPosts() : <Loading />}
+      <PostForm updatePosts={setPosts} />
+      {isLoading ? <Loading /> : renderPosts()}
     </FeedPageContainer>
   );
 }

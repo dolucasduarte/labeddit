@@ -9,7 +9,6 @@ import commentBalloon from "../images/comment-balloon.svg";
 import timePassed from "../utils/timePassed";
 
 function PostCard({ post }) {
-  console.log({ post });
   return (
     <CardContainer>
       <VoteBar
