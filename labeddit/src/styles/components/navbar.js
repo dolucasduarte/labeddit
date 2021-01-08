@@ -1,11 +1,13 @@
 import styled from "styled-components";
 
 export const NavbarContainer = styled.div`
-  position: fixed;
-  top: 0;
+  background-color: #ffffff;
   width: 100vw;
   height: 8vh;
-  background-color: #ffffff;
+  position: sticky;
+  top: 0;
+  margin-bottom: 2em;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
