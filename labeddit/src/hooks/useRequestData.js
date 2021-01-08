@@ -1,13 +1,15 @@
 import { useState, useLayoutEffect } from "react";
+import { requestData } from "../services/api";
 
-const useRequestData = (initialData, requestData) => {
+const useRequestData = (initialData, endpoint) => {
   const [data, setData] = useState(initialData);
 
-  useLayoutEffect(() => {
-    const token = window.localStorage.getItem("token");
+  // useLayoutEffect(() => {
+  //   const token = window.localStorage.getItem("token");
+  //   if (token) return requestData();
+  // }, []);
 
-    if (token) return requestData(setData);
-  }, [requestData]);
+  requestData(setData);
 
   return { data, requestData };
 };

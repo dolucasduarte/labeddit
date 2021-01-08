@@ -3,8 +3,8 @@ import styled from "styled-components";
 export const NavbarContainer = styled.div`
   position: fixed;
   top: 0;
-  width: 100%;
-  height: 4em;
+  width: 100vw;
+  height: 8vh;
   background-color: #ffffff;
   display: flex;
   justify-content: space-between;

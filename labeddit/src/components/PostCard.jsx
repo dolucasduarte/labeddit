@@ -1,6 +1,6 @@
 import {
   CardContainer,
-  PostContainer,
+  ContentContainer,
   PostInfo,
   CommentsContainer
 } from "../styles/components/postCard";
@@ -12,8 +12,12 @@ function PostCard({ post }) {
   console.log({ post });
   return (
     <CardContainer>
-      <VoteBar votesCount={post.votesCount} />
-      <PostContainer>
+      <VoteBar
+        id={post.id}
+        votesCount={post.votesCount}
+        userVoteDirection={post.userVoteDirection}
+      />
+      <ContentContainer>
         <PostInfo>
           Posted by u/{post.username.split(" ").join("")}{" "}
           {timePassed(post.createdAt)}
@@ -27,7 +31,7 @@ function PostCard({ post }) {
             {post.commentsCount !== 1 ? "comments" : "comment"}
           </figcaption>
         </CommentsContainer>
-      </PostContainer>
+      </ContentContainer>
     </CardContainer>
   );
 }

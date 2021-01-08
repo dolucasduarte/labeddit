@@ -3,7 +3,7 @@ import { TitleInput, PostTextArea } from "./Inputs";
 import useForm from "../hooks/useForm";
 import { createPost } from "../services/api";
 
-function PostForm() {
+function PostForm({ requestData }) {
   const { form, onChange, resetForm } = useForm({
     title: "",
     text: ""
@@ -15,7 +15,7 @@ function PostForm() {
       text: form.text,
       title: form.title
     };
-    createPost(body, resetForm);
+    createPost(body, resetForm, requestData);
   };
 
   return (

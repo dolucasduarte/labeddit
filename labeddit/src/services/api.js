@@ -30,14 +30,14 @@ const signIn = (body, history) => {
     });
 };
 
-const createPost = (body, resetForm) => {
+const createPost = (body, resetForm, requestData) => {
   api
     .post("posts", body, {
       headers: { authorization: localStorage.getItem("token") }
     })
     .then(response => {
-      alert("Sucesso");
-      resetForm();
+      getPosts();
+      requestData();
     })
     .catch(error => {
       alert("Fracasso");
@@ -45,6 +45,34 @@ const createPost = (body, resetForm) => {
 };
 
 const getPosts = setData => {
+  // api
+  //   .get("posts", {
+  //     headers: {
+  //       authorization: localStorage.getItem("token")
+  //     }
+  //   })
+  //   .then(response => {
+  //     setData(response.data);
+  //   })
+  //   .catch(error => {
+  //     alert("Erro ao carregar posts");
+  //   });
+};
+
+const votePost = (body, id) => {
+  api
+    .put(`posts/${id}/vote`, body, {
+      headers: {
+        authorization: localStorage.getItem("token")
+      }
+    })
+    .then(response => {})
+    .catch(error => {
+      alert(error);
+    });
+};
+
+const requestData = setData => {
   api
     .get("posts", {
       headers: {
@@ -55,8 +83,8 @@ const getPosts = setData => {
       setData(response.data);
     })
     .catch(error => {
-      alert("Erro ao carregar posts");
+      alert("Erro ao carregar informações");
     });
 };
 
-export { signUp, signIn, createPost, getPosts };
+export { api, signUp, signIn, createPost, getPosts, votePost, requestData };
