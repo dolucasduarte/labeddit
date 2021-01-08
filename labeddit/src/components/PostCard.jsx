@@ -5,20 +5,27 @@ import {
   CommentsContainer
 } from "../styles/components/postCard";
 import VoteBar from "./VoteBar";
-
 import commentBalloon from "../images/comment-balloon.svg";
+import timePassed from "../utils/timePassed";
 
-function PostCard() {
+function PostCard({ post }) {
+  console.log({ post });
   return (
     <CardContainer>
-      <VoteBar />
+      <VoteBar votesCount={post.votesCount} />
       <PostContainer>
-        <PostInfo>Posted by u/jojoquinha 4 minutes ago</PostInfo>
-        <h3>Nome do post</h3>
-        <p>Conteúdo do post.</p>
+        <PostInfo>
+          Posted by u/{post.username.split(" ").join("")}{" "}
+          {timePassed(post.createdAt)}
+        </PostInfo>
+        <h3>{post.title}</h3>
+        <p>{post.text}</p>
         <CommentsContainer>
           <img src={commentBalloon} alt="See comments" />
-          <figcaption>0 comments</figcaption>
+          <figcaption>
+            {post.commentsCount + " "}
+            {post.commentsCount !== 1 ? "comments" : "comment"}
+          </figcaption>
         </CommentsContainer>
       </PostContainer>
     </CardContainer>

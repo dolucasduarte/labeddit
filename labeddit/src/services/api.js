@@ -9,6 +9,7 @@ const signUp = (body, history) => {
     .post("signup", body)
     .then(response => {
       localStorage.setItem("token", response.data.token);
+      localStorage.setItem("username", response.data.user.username);
       history.push("/");
     })
     .catch(error => {
@@ -21,6 +22,7 @@ const signIn = (body, history) => {
     .post("login", body)
     .then(response => {
       localStorage.setItem("token", response.data.token);
+      localStorage.setItem("username", response.data.user.username);
       history.push("/");
     })
     .catch(error => {
@@ -42,4 +44,19 @@ const createPost = (body, resetForm) => {
     });
 };
 
-export { signUp, signIn, createPost };
+const getPosts = setData => {
+  api
+    .get("posts", {
+      headers: {
+        authorization: localStorage.getItem("token")
+      }
+    })
+    .then(response => {
+      setData(response.data);
+    })
+    .catch(error => {
+      alert("Erro ao carregar posts");
+    });
+};
+
+export { signUp, signIn, createPost, getPosts };
