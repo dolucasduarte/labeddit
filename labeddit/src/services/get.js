@@ -1,6 +1,6 @@
 import api from "./api";
 
-const getPosts = (setData, setIsLoading) => {
+const getFeed = (setData, setIsLoading) => {
   api
     .get("posts", {
       headers: {
@@ -17,4 +17,21 @@ const getPosts = (setData, setIsLoading) => {
     });
 };
 
-export { getPosts };
+const getPost = (id, setData, setIsLoading) => {
+  api
+    .get(`posts/${id}`, {
+      headers: {
+        authorization: localStorage.getItem("token")
+      }
+    })
+    .then(response => {
+      setData(response.data.post);
+      setIsLoading && setIsLoading(false);
+    })
+    .catch(error => {
+      alert("Pane no");
+      setIsLoading && setIsLoading(false);
+    });
+};
+
+export { getFeed, getPost };

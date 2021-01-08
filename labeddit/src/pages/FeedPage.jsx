@@ -1,16 +1,16 @@
 import { useState, useEffect } from "react";
-import { FeedPageContainer } from "../styles/pages/feedPage";
+import { PageContainer } from "../styles/pages/authenticatedPages";
 import PostForm from "../components/PostForm";
 import PostCard from "../components/PostCard";
 import Loading from "../components/Loading";
-import { getPosts } from "../services/get";
+import { getFeed } from "../services/get";
 
 function FeedPage() {
   const [posts, setPosts] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    getPosts(setPosts, setIsLoading);
+    getFeed(setPosts, setIsLoading);
   }, []);
 
   const renderPosts = () => {
@@ -24,10 +24,10 @@ function FeedPage() {
   };
 
   return (
-    <FeedPageContainer>
+    <PageContainer>
       <PostForm updatePosts={setPosts} />
       {isLoading ? <Loading /> : renderPosts()}
-    </FeedPageContainer>
+    </PageContainer>
   );
 }
 

@@ -17,7 +17,9 @@ function Navbar() {
 
   return (
     <NavbarContainer>
-      <Logo src={logo} alt="Labeddit logo" />
+      <Link to="/">
+        <Logo src={logo} alt="Labeddit logo" />
+      </Link>
       <ProfileContainer>
         <img src={profileIcon} alt="Profile icon" />
         <div>

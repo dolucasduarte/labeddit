@@ -1,5 +1,5 @@
 import api from "./api";
-import { getPosts } from "./get";
+import { getFeed } from "./get";
 
 const signUp = (body, history) => {
   api
@@ -34,7 +34,7 @@ const createPost = (body, resetForm, updatePosts) => {
     })
     .then(response => {
       resetForm();
-      getPosts(updatePosts);
+      getFeed(updatePosts);
     })
     .catch(error => {
       alert("Fracasso");

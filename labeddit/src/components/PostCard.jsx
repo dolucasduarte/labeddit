@@ -1,3 +1,4 @@
+import { useHistory } from "react-router-dom";
 import {
   CardContainer,
   ContentContainer,
@@ -9,6 +10,12 @@ import commentBalloon from "../images/comment-balloon.svg";
 import timePassed from "../utils/timePassed";
 
 function PostCard({ post }) {
+  const history = useHistory();
+
+  const goToPost = (history, id) => {
+    history.push(`/${id}`);
+  };
+
   return (
     <CardContainer>
       <VoteBar
@@ -16,7 +23,7 @@ function PostCard({ post }) {
         votesCount={post.votesCount}
         userVoteDirection={post.userVoteDirection}
       />
-      <ContentContainer>
+      <ContentContainer onClick={() => goToPost(history, post.id)}>
         <PostInfo>
           Posted by u/{post.username.split(" ").join("")}{" "}
           {timePassed(post.createdAt)}

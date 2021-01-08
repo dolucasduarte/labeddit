@@ -1,5 +1,5 @@
 import { Link, useHistory } from "react-router-dom";
-import { AuthPageContainer } from "../styles/pages/authPages";
+import { AuthPageContainer } from "../styles/pages/authenticationPages";
 import logoIcon from "../images/logo-icon.svg";
 import { UsernameInput, EmailInput, PasswordInput } from "../components/Inputs";
 import useForm from "../hooks/useForm";

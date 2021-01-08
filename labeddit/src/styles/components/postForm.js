@@ -9,7 +9,7 @@ export const PostFormContainer = styled.div`
   height: 40vh;
   background-color: #ffffff;
   border-radius: 0.5em;
-  margin: 5em 0 2em 0;
+  margin-bottom: 2em;
 
   @media (max-width: 500px) {
     width: 100vw;
