@@ -9,6 +9,7 @@ const signUp = (body, history) => {
     .post("signup", body)
     .then(response => {
       localStorage.setItem("token", response.data.token);
+      localStorage.setItem("username", response.data.user.username);
       history.push("/");
     })
     .catch(error => {
@@ -21,6 +22,7 @@ const signIn = (body, history) => {
     .post("login", body)
     .then(response => {
       localStorage.setItem("token", response.data.token);
+      localStorage.setItem("username", response.data.user.username);
       history.push("/");
     })
     .catch(error => {

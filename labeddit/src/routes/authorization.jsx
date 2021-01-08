@@ -1,8 +1,5 @@
-import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
-import SignUpPage from "./pages/SignUpPage";
-import SignInPage from "./pages/SignInPage";
-import FeedPage from "./pages/FeedPage";
-import PostPage from "./pages/PostPage";
+import { Route, Redirect } from "react-router-dom";
+import Navbar from "../components/Navbar";
 
 function isAuthenticated() {
   const token = localStorage.getItem("token");
@@ -15,7 +12,10 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
     {...rest}
     render={props =>
       isAuthenticated() ? (
-        <Component {...props} />
+        <div>
+          <Navbar />
+          <Component {...props} />
+        </div>
       ) : (
         <Redirect
           to={{ pathname: "/signup", state: { from: props.location } }}
@@ -38,17 +38,4 @@ const PublicRoute = ({ component: Component, ...rest }) => (
   />
 );
 
-function Routes() {
-  return (
-    <BrowserRouter>
-      <Switch>
-        <PublicRoute path="/signup" component={SignUpPage} />
-        <PublicRoute path="/login" component={SignInPage} />
-        <PrivateRoute exact path="/" component={FeedPage} />
-        <PrivateRoute exact path="/:id" component={PostPage} />
-      </Switch>
-    </BrowserRouter>
-  );
-}
-
-export default Routes;
+export { PrivateRoute, PublicRoute };

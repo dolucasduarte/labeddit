@@ -1,3 +1,4 @@
+import { FeedPageContainer } from "../styles/feedPage";
 import PostForm from "../components/PostForm";
 import PostCard from "../components/PostCard";
 import useRequestData from "../hooks/useRequestData";
@@ -21,7 +22,7 @@ function FeedPage() {
   };
 
   return (
-    <div>
+    <FeedPageContainer>
       <PostForm />
       {posts && posts.length > 0 ? (
         renderPosts()
@@ -31,7 +32,7 @@ function FeedPage() {
           <span>Loading posts</span>
         </LoadingContainer>
       )}
-    </div>
+    </FeedPageContainer>
   );
 }
 
