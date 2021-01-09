@@ -10,7 +10,7 @@ const signUp = (body, history) => {
       history.push("/");
     })
     .catch(error => {
-      alert("erro");
+      alert("Couldn't sign up");
     });
 };
 
@@ -23,7 +23,7 @@ const signIn = (body, history) => {
       history.push("/");
     })
     .catch(error => {
-      alert("erro");
+      alert("Couldn't sign in");
     });
 };
 
@@ -37,8 +37,21 @@ const createPost = (body, resetForm, updatePosts) => {
       getFeed(updatePosts);
     })
     .catch(error => {
-      alert("Fracasso");
+      alert("Couldn't create post");
     });
 };
 
-export { signUp, signIn, createPost };
+const createComment = (id, body, resetForm) => {
+  api
+    .post(`posts/${id}/comment`, body, {
+      headers: { authorization: localStorage.getItem("token") }
+    })
+    .then(response => {
+      resetForm();
+    })
+    .catch(error => {
+      alert(error);
+    });
+};
+
+export { signUp, signIn, createPost, createComment };

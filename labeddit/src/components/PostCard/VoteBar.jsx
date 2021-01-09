@@ -1,14 +1,16 @@
 import { useState } from "react";
-import { voteOnPost } from "../services/put";
-import { VotingBarContainer } from "../styles/components/postCard";
-import arrowDownSelected from "../images/arrow-down-selected.svg";
-import arrowDownUnselected from "../images/arrow-down-unselected.svg";
-import arrowUpSelected from "../images/arrow-up-selected.svg";
-import arrowUpUnselected from "../images/arrow-up-unselected.svg";
+import { useLocation } from "react-router-dom";
+import { voteOnPost } from "../../services/put";
+import { VotingBarContainer } from "../../styles/components/postCard";
+import arrowDownSelected from "../../images/arrow-down-selected.svg";
+import arrowDownUnselected from "../../images/arrow-down-unselected.svg";
+import arrowUpSelected from "../../images/arrow-up-selected.svg";
+import arrowUpUnselected from "../../images/arrow-up-unselected.svg";
 
-function VoteBar({ id, votesCount, userVoteDirection }) {
-  const [userVote, setUserVote] = useState(userVoteDirection);
-  const [votesCounter, setVotesCounter] = useState(votesCount);
+function VoteBar({ post }) {
+  const pathname = useLocation().pathname;
+  const [userVote, setUserVote] = useState(post.userVoteDirection);
+  const [votesCounter, setVotesCounter] = useState(post.votesCount);
 
   const voteHandler = vote => {
     setUserVote(vote);
@@ -32,11 +34,11 @@ function VoteBar({ id, votesCount, userVoteDirection }) {
       direction: vote
     };
 
-    voteOnPost(body, id);
+    voteOnPost(body, post.id);
   };
 
   return (
-    <VotingBarContainer>
+    <VotingBarContainer pathname={pathname} id={post.id}>
       {userVote === 1 ? (
         <img
           src={arrowUpSelected}
