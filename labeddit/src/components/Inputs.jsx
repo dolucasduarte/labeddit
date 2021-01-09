@@ -66,7 +66,6 @@ function PostTextArea({ form, onChange }) {
     <textarea
       id="text"
       name="text"
-      type="text"
       placeholder="Text"
       onChange={onChange}
       value={form.text}
@@ -75,4 +74,24 @@ function PostTextArea({ form, onChange }) {
   );
 }
 
-export { UsernameInput, PasswordInput, EmailInput, TitleInput, PostTextArea };
+function CommentTextArea({ form, onChange }) {
+  return (
+    <textarea
+      id="commentText"
+      name="commentText"
+      placeholder="What are your thoughts on this?"
+      value={form.commentText}
+      onChange={onChange}
+      required
+    />
+  );
+}
+
+export {
+  UsernameInput,
+  PasswordInput,
+  EmailInput,
+  TitleInput,
+  PostTextArea,
+  CommentTextArea
+};

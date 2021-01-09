@@ -1,21 +1,31 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const CardContainer = styled.div`
   display: flex;
   width: 40em;
   min-height: 10em;
   border-radius: 0.5em 0.5em 0.5em 0.5em;
-  border: 1px solid #cccccc;
   margin-top: 1em;
-
-  @media (max-width: 500px) {
-    width: 100vw;
-    align-self: center;
-  }
+  border: 1px solid #cccccc;
 
   &:hover {
     border: 1px solid #898989;
     cursor: pointer;
+  }
+
+  ${props =>
+    props.pathname === `/${props.id}` &&
+    css`
+      margin-top: 0;
+      border: none;
+      &:hover {
+        border: none;
+      }
+    `}
+
+  @media (max-width: 500px) {
+    width: 100vw;
+    align-self: center;
   }
 `;
 
@@ -28,6 +38,13 @@ export const VotingBarContainer = styled.div`
   min-width: 2.5em;
   border-radius: 0.5em 0 0 0.5em;
   border: none;
+
+  ${props =>
+    props.pathname === `/${props.id}` &&
+    css`
+      background: #ffff;
+      border-radius: 1px;
+    `}
 
   img {
     height: 1em;
@@ -53,6 +70,12 @@ export const ContentContainer = styled.div`
   border-radius: 0 0.5em 0.5em 0;
   border: none;
 
+  ${props =>
+    props.pathname === `/${props.id}` &&
+    css`
+      border-radius: 0 0.5em 0 0;
+    `}
+
   h3 {
     font-weight: 600;
     margin-bottom: 0;
@@ -70,7 +93,7 @@ export const PostInfo = styled.div`
   font-size: 0.8em;
 `;
 
-export const CommentsContainer = styled.div`
+export const CommentsIconContainer = styled.div`
   display: flex;
   align-items: center;
   width: fit-content;

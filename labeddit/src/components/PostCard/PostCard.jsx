@@ -1,15 +1,16 @@
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import {
   CardContainer,
   ContentContainer,
   PostInfo,
-  CommentsContainer
-} from "../styles/components/postCard";
+  CommentsIconContainer
+} from "../../styles/components/postCard";
 import VoteBar from "./VoteBar";
-import commentBalloon from "../images/comment-balloon.svg";
-import timePassed from "../utils/timePassed";
+import commentBalloon from "../../images/comment-balloon.svg";
+import elapsedTime from "../../utils/elapsedTime";
 
 function PostCard({ post }) {
+  const pathname = useLocation().pathname;
   const history = useHistory();
 
   const goToPost = (history, id) => {
@@ -17,26 +18,26 @@ function PostCard({ post }) {
   };
 
   return (
-    <CardContainer>
-      <VoteBar
+    <CardContainer pathname={pathname} id={post.id}>
+      <VoteBar post={post} />
+      <ContentContainer
+        onClick={() => goToPost(history, post.id)}
+        pathname={pathname}
         id={post.id}
-        votesCount={post.votesCount}
-        userVoteDirection={post.userVoteDirection}
-      />
-      <ContentContainer onClick={() => goToPost(history, post.id)}>
+      >
         <PostInfo>
           Posted by u/{post.username.split(" ").join("")}{" "}
-          {timePassed(post.createdAt)}
+          {elapsedTime(post.createdAt)}
         </PostInfo>
         <h3>{post.title}</h3>
         <p>{post.text}</p>
-        <CommentsContainer>
+        <CommentsIconContainer>
           <img src={commentBalloon} alt="See comments" />
           <figcaption>
             {post.commentsCount + " "}
             {post.commentsCount !== 1 ? "comments" : "comment"}
           </figcaption>
-        </CommentsContainer>
+        </CommentsIconContainer>
       </ContentContainer>
     </CardContainer>
   );
