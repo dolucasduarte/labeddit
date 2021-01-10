@@ -30,7 +30,7 @@ export const CommentFormContainer = styled.div`
     resize: vertical;
     min-height: 6em;
     max-height: 8em;
-    font-family: Arial;
+    font-family: -apple-system, BlinkMacSystemFont;
 
     &::placeholder {
       color: #878a8c;
