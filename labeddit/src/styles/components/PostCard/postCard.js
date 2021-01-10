@@ -29,36 +29,6 @@ export const CardContainer = styled.div`
   }
 `;
 
-export const VotingBarContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: #f8f9fa;
-  min-width: 2.5em;
-  border-radius: 0.5em 0 0 0.5em;
-  border: none;
-
-  ${props =>
-    props.pathname === `/${props.id}` &&
-    css`
-      background: #ffff;
-      border-radius: 1px;
-    `}
-
-  img {
-    height: 1em;
-    margin-bottom: 0.3em;
-    margin-top: 0.3em;
-    padding: 0.5em;
-
-    &:hover {
-      cursor: pointer;
-      background-color: #e8e8e8;
-    }
-  }
-`;
-
 export const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -70,11 +40,12 @@ export const ContentContainer = styled.div`
   border-radius: 0 0.5em 0.5em 0;
   border: none;
 
-  ${props =>
-    props.pathname === `/${props.id}` &&
-    css`
-      border-radius: 0 0.5em 0 0;
-    `}
+  time {
+    margin-top: 0.7em;
+    color: #787c7e;
+    font-weight: 300;
+    font-size: 0.8em;
+  }
 
   h3 {
     font-weight: 600;
@@ -84,13 +55,6 @@ export const ContentContainer = styled.div`
   p {
     font-weight: 300;
   }
-`;
-
-export const PostInfo = styled.div`
-  margin-top: 0.7em;
-  color: #787c7e;
-  font-weight: 300;
-  font-size: 0.8em;
 `;
 
 export const CommentsIconContainer = styled.div`

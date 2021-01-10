@@ -1,5 +1,5 @@
 import { Route, Redirect } from "react-router-dom";
-import Navbar from "../components/Navbar";
+import Header from "../components/Header";
 
 function isAuthenticated() {
   const token = localStorage.getItem("token");
@@ -12,8 +12,8 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
     {...rest}
     render={props =>
       isAuthenticated() ? (
-        <div>
-          <Navbar />
+        <div style={{ width: "100vw" }}>
+          <Header />
           <Component {...props} />
         </div>
       ) : (

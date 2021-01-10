@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
 import {
-  NavbarContainer,
+  HeaderContainer,
   Logo,
   ProfileContainer
-} from "../styles/components/navbar";
+} from "../styles/components/header";
 import logo from "../images/logo.svg";
 import profileIcon from "../images/profile-icon.svg";
 
-function Navbar() {
+function Header() {
   const username = localStorage.getItem("username");
 
   const signOut = () => {
@@ -16,7 +16,7 @@ function Navbar() {
   };
 
   return (
-    <NavbarContainer>
+    <HeaderContainer>
       <Link to="/">
         <Logo src={logo} alt="Labeddit logo" />
       </Link>
@@ -31,8 +31,8 @@ function Navbar() {
           </span>
         </div>
       </ProfileContainer>
-    </NavbarContainer>
+    </HeaderContainer>
   );
 }
 
-export default Navbar;
+export default Header;

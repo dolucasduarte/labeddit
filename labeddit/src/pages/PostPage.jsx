@@ -5,7 +5,8 @@ import { PostDetailsContainer } from "../styles/pages/postPage";
 import { getPost } from "../services/get";
 import PostCard from "../components/PostCard/PostCard";
 import Loading from "../components/Loading";
-import CommentForm from "../components/Comments Section/CommentForm";
+import CommentForm from "../components/CommentsSection/CommentForm";
+import CommentsSection from "../components/CommentsSection/CommentsSection";
 
 function PostPage() {
   const [post, setPost] = useState();
@@ -24,6 +25,7 @@ function PostPage() {
         <PostDetailsContainer>
           <PostCard post={post} />
           <CommentForm post={post} />
+          <CommentsSection post={post} />
         </PostDetailsContainer>
       )}
     </PageContainer>

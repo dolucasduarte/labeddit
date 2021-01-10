@@ -1,5 +1,5 @@
 import useForm from "../../hooks/useForm";
-import { CommentFormContainer } from "../../styles/components/commentForm";
+import { CommentFormContainer } from "../../styles/components/CommentsSection/commentForm";
 import { CommentTextArea } from "../Inputs";
 import { createComment } from "../../services/post";
 

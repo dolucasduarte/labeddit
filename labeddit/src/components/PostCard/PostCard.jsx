@@ -2,9 +2,8 @@ import { useHistory, useLocation } from "react-router-dom";
 import {
   CardContainer,
   ContentContainer,
-  PostInfo,
   CommentsIconContainer
-} from "../../styles/components/postCard";
+} from "../../styles/components/PostCard/postCard";
 import VoteBar from "./VoteBar";
 import commentBalloon from "../../images/comment-balloon.svg";
 import elapsedTime from "../../utils/elapsedTime";
@@ -25,10 +24,10 @@ function PostCard({ post }) {
         pathname={pathname}
         id={post.id}
       >
-        <PostInfo>
+        <time>
           Posted by u/{post.username.split(" ").join("")}{" "}
           {elapsedTime(post.createdAt)}
-        </PostInfo>
+        </time>
         <h3>{post.title}</h3>
         <p>{post.text}</p>
         <CommentsIconContainer>
