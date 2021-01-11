@@ -1,5 +1,5 @@
 import api from "./api";
-import { getFeed } from "./get";
+import { getFeed, getPost } from "./get";
 
 const signUp = (body, history) => {
   api
@@ -41,13 +41,14 @@ const createPost = (body, resetForm, updatePosts) => {
     });
 };
 
-const createComment = (id, body, resetForm) => {
+const createComment = (id, body, resetForm, updatePost) => {
   api
     .post(`posts/${id}/comment`, body, {
       headers: { authorization: localStorage.getItem("token") }
     })
     .then(response => {
       resetForm();
+      getPost(id, updatePost);
     })
     .catch(error => {
       alert(error);

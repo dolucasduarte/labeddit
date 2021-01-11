@@ -1,7 +1,7 @@
-import { CommentsSectionContainer } from "../../styles/components/CommentsSection/commentsSection";
+import { CommentsSectionContainer } from "./Comments.style";
 import elapsedTime from "../../utils/elapsedTime";
 
-function CommentsSection({ post }) {
+function Comments({ post }) {
   const comments = post.comments;
 
   const renderComments = () => {
@@ -27,4 +27,4 @@ function CommentsSection({ post }) {
   );
 }
 
-export default CommentsSection;
+export default Comments;

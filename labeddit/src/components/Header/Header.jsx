@@ -1,11 +1,7 @@
+import { HeaderContainer, Logo, ProfileContainer } from "./Header.style";
 import { Link } from "react-router-dom";
-import {
-  HeaderContainer,
-  Logo,
-  ProfileContainer
-} from "../styles/components/header";
-import logo from "../images/logo.svg";
-import profileIcon from "../images/profile-icon.svg";
+import logo from "../../images/logo.svg";
+import profileIcon from "../../images/profile-icon.svg";
 
 function Header() {
   const username = localStorage.getItem("username");
@@ -18,17 +14,15 @@ function Header() {
   return (
     <HeaderContainer>
       <Link to="/">
-        <Logo src={logo} alt="Labeddit logo" />
+        <Logo src={logo} alt="Labeddit" />
       </Link>
       <ProfileContainer>
-        <img src={profileIcon} alt="Profile icon" />
+        <img src={profileIcon} alt={`${username} profile`} />
         <div>
           <span>{username}</span>
-          <span>
-            <Link to="/login" onClick={() => signOut()}>
-              Logout
-            </Link>
-          </span>
+          <Link to="/login" onClick={() => signOut()}>
+            Logout
+          </Link>
         </div>
       </ProfileContainer>
     </HeaderContainer>

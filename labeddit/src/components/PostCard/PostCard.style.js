@@ -4,7 +4,7 @@ export const CardContainer = styled.div`
   display: flex;
   width: 40em;
   min-height: 10em;
-  border-radius: 0.5em 0.5em 0.5em 0.5em;
+  border-radius: 0.5em;
   margin-top: 1em;
   border: 1px solid #cccccc;
 
@@ -40,7 +40,7 @@ export const ContentContainer = styled.div`
   border-radius: 0 0.5em 0.5em 0;
   border: none;
 
-  time {
+  span {
     margin-top: 0.7em;
     color: #787c7e;
     font-weight: 300;
@@ -49,11 +49,11 @@ export const ContentContainer = styled.div`
 
   h3 {
     font-weight: 600;
-    margin-bottom: 0;
   }
 
-  p {
+  article {
     font-weight: 300;
+    margin-bottom: 1em;
   }
 `;
 

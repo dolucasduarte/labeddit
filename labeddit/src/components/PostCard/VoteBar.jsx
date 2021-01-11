@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { voteOnPost } from "../../services/put";
-import { VotingBarContainer } from "../../styles/components/PostCard/voteBar";
+import { VotingBarContainer } from "./VoteBar.style";
 import arrowDownSelected from "../../images/arrow-down-selected.svg";
 import arrowDownUnselected from "../../images/arrow-down-unselected.svg";
 import arrowUpSelected from "../../images/arrow-up-selected.svg";
@@ -38,7 +38,7 @@ function VoteBar({ post }) {
   };
 
   return (
-    <VotingBarContainer pathname={pathname} id={post.id}>
+    <VotingBarContainer pathname={pathname}>
       {userVote === 1 ? (
         <img
           src={arrowUpSelected}
