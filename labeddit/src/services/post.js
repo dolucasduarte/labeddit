@@ -1,5 +1,5 @@
-import api from "./api";
-import { getFeed } from "./get";
+import api, { token } from "./api";
+import { getFeed, getPost } from "./get";
 
 const signUp = (body, history) => {
   api
@@ -10,7 +10,7 @@ const signUp = (body, history) => {
       history.push("/");
     })
     .catch(error => {
-      alert("erro");
+      alert("Couldn't sign up");
     });
 };
 
@@ -23,22 +23,36 @@ const signIn = (body, history) => {
       history.push("/");
     })
     .catch(error => {
-      alert("erro");
+      alert("Couldn't sign in");
     });
 };
 
 const createPost = (body, resetForm, updatePosts) => {
   api
     .post("posts", body, {
-      headers: { authorization: localStorage.getItem("token") }
+      headers: { authorization: token }
     })
     .then(response => {
       resetForm();
       getFeed(updatePosts);
     })
     .catch(error => {
-      alert("Fracasso");
+      alert("Couldn't create post");
     });
 };
 
-export { signUp, signIn, createPost };
+const createComment = (id, body, resetForm, updatePost) => {
+  api
+    .post(`posts/${id}/comment`, body, {
+      headers: { authorization: token }
+    })
+    .then(response => {
+      resetForm();
+      getPost(id, updatePost);
+    })
+    .catch(error => {
+      alert(error);
+    });
+};
+
+export { signUp, signIn, createPost, createComment };

@@ -1,4 +1,4 @@
-const timePassed = createdAt => {
+const elapsedTime = createdAt => {
   const now = new Date().getTime();
   const milisseconds = now - createdAt;
   const minutes = milisseconds * 1.6667e-5;
@@ -16,4 +16,4 @@ const timePassed = createdAt => {
   if (months > 1) return `${months} months ago`;
 };
 
-export default timePassed;
+export default elapsedTime;

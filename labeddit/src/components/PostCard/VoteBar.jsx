@@ -1,14 +1,16 @@
+import { VotingBarContainer, VotingIcon } from "./VoteBar.style";
 import { useState } from "react";
-import { voteOnPost } from "../services/put";
-import { VotingBarContainer } from "../styles/components/postCard";
-import arrowDownSelected from "../images/arrow-down-selected.svg";
-import arrowDownUnselected from "../images/arrow-down-unselected.svg";
-import arrowUpSelected from "../images/arrow-up-selected.svg";
-import arrowUpUnselected from "../images/arrow-up-unselected.svg";
+import { useLocation } from "react-router-dom";
+import { voteOnPost } from "services/put";
+import arrowDownSelected from "images/arrow-down-selected.svg";
+import arrowDownUnselected from "images/arrow-down-unselected.svg";
+import arrowUpSelected from "images/arrow-up-selected.svg";
+import arrowUpUnselected from "images/arrow-up-unselected.svg";
 
-function VoteBar({ id, votesCount, userVoteDirection }) {
-  const [userVote, setUserVote] = useState(userVoteDirection);
-  const [votesCounter, setVotesCounter] = useState(votesCount);
+function VoteBar({ post }) {
+  const pathname = useLocation().pathname;
+  const [userVote, setUserVote] = useState(post.userVoteDirection);
+  const [votesCounter, setVotesCounter] = useState(post.votesCount);
 
   const voteHandler = vote => {
     setUserVote(vote);
@@ -32,19 +34,19 @@ function VoteBar({ id, votesCount, userVoteDirection }) {
       direction: vote
     };
 
-    voteOnPost(body, id);
+    voteOnPost(body, post.id);
   };
 
   return (
-    <VotingBarContainer>
+    <VotingBarContainer pathname={pathname}>
       {userVote === 1 ? (
-        <img
+        <VotingIcon
           src={arrowUpSelected}
           alt="Upvoted"
           onClick={() => voteHandler(0)}
         />
       ) : (
-        <img
+        <VotingIcon
           src={arrowUpUnselected}
           alt="Vote up"
           onClick={() => voteHandler(1)}
@@ -54,13 +56,13 @@ function VoteBar({ id, votesCount, userVoteDirection }) {
       {votesCounter}
 
       {userVote === -1 ? (
-        <img
+        <VotingIcon
           src={arrowDownSelected}
           alt="Downvoted"
           onClick={() => voteHandler(0)}
         />
       ) : (
-        <img
+        <VotingIcon
           src={arrowDownUnselected}
           alt="Vote down"
           onClick={() => voteHandler(-1)}
