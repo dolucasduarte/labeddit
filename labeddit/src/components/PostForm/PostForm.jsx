@@ -1,7 +1,8 @@
-import { PostFormContainer } from "../styles/components/postForm";
-import { TitleInput, PostTextArea } from "./Inputs";
-import useForm from "../hooks/useForm";
-import { createPost } from "../services/post";
+import { PostFormContainer, Form } from "./PostForm.style";
+import { PostTitleInput, PostTextArea } from "../Inputs/PostFormInputs";
+import useForm from "../../hooks/useForm";
+import { createPost } from "../../services/post";
+import { Button } from "../Buttons/Buttons";
 
 function PostForm({ updatePosts }) {
   const { form, onChange, resetForm } = useForm({
@@ -20,12 +21,12 @@ function PostForm({ updatePosts }) {
 
   return (
     <PostFormContainer>
-      <form onSubmit={submitPost}>
+      <Form onSubmit={submitPost}>
         <h4>Create a post</h4>
-        <TitleInput form={form} onChange={onChange}></TitleInput>
+        <PostTitleInput form={form} onChange={onChange}></PostTitleInput>
         <PostTextArea form={form} onChange={onChange}></PostTextArea>
-        <button>Post</button>
-      </form>
+        <Button CTA="Post" />
+      </Form>
     </PostFormContainer>
   );
 }

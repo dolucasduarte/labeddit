@@ -4,9 +4,9 @@ import { PageContainer } from "../styles/pages/authenticatedPages";
 import { PostDetailsContainer } from "../styles/pages/postPage";
 import { getPost } from "../services/get";
 import PostCard from "../components/PostCard/PostCard";
-import Loading from "../components/Loading";
+import Loading from "../components/Loading/Loading";
 import CommentForm from "../components/CommentsSection/CommentForm";
-import CommentsSection from "../components/CommentsSection/CommentsSection";
+import Comments from "../components/CommentsSection/Comments";
 
 function PostPage() {
   const [post, setPost] = useState();
@@ -24,8 +24,8 @@ function PostPage() {
       ) : (
         <PostDetailsContainer>
           <PostCard post={post} />
-          <CommentForm post={post} />
-          <CommentsSection post={post} />
+          <CommentForm post={post} updatePost={setPost} />
+          <Comments post={post} />
         </PostDetailsContainer>
       )}
     </PageContainer>

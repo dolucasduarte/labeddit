@@ -1,12 +1,12 @@
-import { useHistory, useLocation } from "react-router-dom";
 import {
   CardContainer,
   ContentContainer,
   CommentsIconContainer
-} from "../../styles/components/PostCard/postCard";
+} from "./PostCard.style";
 import VoteBar from "./VoteBar";
-import commentBalloon from "../../images/comment-balloon.svg";
+import { useHistory, useLocation } from "react-router-dom";
 import elapsedTime from "../../utils/elapsedTime";
+import commentBalloon from "../../images/comment-balloon.svg";
 
 function PostCard({ post }) {
   const pathname = useLocation().pathname;
@@ -19,17 +19,13 @@ function PostCard({ post }) {
   return (
     <CardContainer pathname={pathname} id={post.id}>
       <VoteBar post={post} />
-      <ContentContainer
-        onClick={() => goToPost(history, post.id)}
-        pathname={pathname}
-        id={post.id}
-      >
-        <time>
+      <ContentContainer onClick={() => goToPost(history, post.id)}>
+        <span>
           Posted by u/{post.username.split(" ").join("")}{" "}
-          {elapsedTime(post.createdAt)}
-        </time>
+          <time>{elapsedTime(post.createdAt)}</time>
+        </span>
         <h3>{post.title}</h3>
-        <p>{post.text}</p>
+        <article>{post.text}</article>
         <CommentsIconContainer>
           <img src={commentBalloon} alt="See comments" />
           <figcaption>

@@ -5,13 +5,12 @@ export const VotingBarContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #f8f9fa;
   min-width: 2.5em;
+  background-color: #f8f9fa;
   border-radius: 0.5em 0 0 0.5em;
-  border: none;
 
   ${props =>
-    props.pathname === `/${props.id}` &&
+    props.pathname !== `/` &&
     css`
       background: #ffff;
     `}

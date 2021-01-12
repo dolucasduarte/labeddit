@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { heartbeat } from "../keyframes";
+import { heartbeat } from "../../styles/keyframes";
 
 export const LoadingContainer = styled.div`
   display: flex;
