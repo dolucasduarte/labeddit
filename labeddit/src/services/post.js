@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 import api, { token } from "./api";
-=======
-import api from "./api";
->>>>>>> 993da5a39915945b0912bcb243ef3138d10481c0
 import { getFeed, getPost } from "./get";
 
 const signUp = (body, history) => {
@@ -48,11 +44,7 @@ const createPost = (body, resetForm, updatePosts) => {
 const createComment = (id, body, resetForm, updatePost) => {
   api
     .post(`posts/${id}/comment`, body, {
-<<<<<<< HEAD
       headers: { authorization: token }
-=======
-      headers: { authorization: localStorage.getItem("token") }
->>>>>>> 993da5a39915945b0912bcb243ef3138d10481c0
     })
     .then(response => {
       resetForm();

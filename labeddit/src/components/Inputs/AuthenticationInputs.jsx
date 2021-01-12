@@ -1,10 +1,5 @@
-<<<<<<< HEAD:labeddit/src/components/Inputs/AuthenticationInputs.jsx
 import { AuthenticationInput } from "./Inputs.style";
 import blockSpace from "utils/blockSpace";
-=======
-import blockSpace from "../../utils/blockSpace";
-import { AuthenticationInput } from "./AuthenticationInputs.style";
->>>>>>> 993da5a39915945b0912bcb243ef3138d10481c0:labeddit/src/components/Inputs.jsx
 
 function UsernameInput({ form, onChange }) {
   return (
@@ -13,10 +8,6 @@ function UsernameInput({ form, onChange }) {
       name="username"
       type="text"
       placeholder="Nickname"
-<<<<<<< HEAD:labeddit/src/components/Inputs/AuthenticationInputs.jsx
-=======
-      onKeyDown={blockSpace}
->>>>>>> 993da5a39915945b0912bcb243ef3138d10481c0:labeddit/src/components/Inputs.jsx
       onChange={onChange}
       value={form.username}
       required
