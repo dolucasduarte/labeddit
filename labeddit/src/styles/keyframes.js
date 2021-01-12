@@ -1,6 +1,6 @@
 import { keyframes } from "styled-components";
 
-export const heartbeat = keyframes`
+const heartbeat = keyframes`
   0% {
     -webkit-transform: scale(1);
             transform: scale(1);
@@ -15,3 +15,5 @@ export const heartbeat = keyframes`
   }
 }
 `;
+
+export { heartbeat };

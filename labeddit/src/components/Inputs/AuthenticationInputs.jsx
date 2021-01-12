@@ -1,13 +1,13 @@
-import blockSpace from "../utils/blockSpace";
+import { AuthenticationInput } from "./Inputs.style";
+import blockSpace from "utils/blockSpace";
 
 function UsernameInput({ form, onChange }) {
   return (
-    <input
+    <AuthenticationInput
       id="username"
       name="username"
       type="text"
       placeholder="Nickname"
-      onKeyDown={e => e.which === 32 && e.preventDefault()}
       onChange={onChange}
       value={form.username}
       required
@@ -17,7 +17,7 @@ function UsernameInput({ form, onChange }) {
 
 function EmailInput({ form, onChange }) {
   return (
-    <input
+    <AuthenticationInput
       id="email"
       name="email"
       type="email"
@@ -33,7 +33,7 @@ function EmailInput({ form, onChange }) {
 
 function PasswordInput({ form, onChange }) {
   return (
-    <input
+    <AuthenticationInput
       id="password"
       name="password"
       type="password"
@@ -47,32 +47,4 @@ function PasswordInput({ form, onChange }) {
   );
 }
 
-function TitleInput({ form, onChange }) {
-  return (
-    <input
-      id="title"
-      name="title"
-      type="text"
-      placeholder="Title"
-      onChange={onChange}
-      value={form.title}
-      required
-    />
-  );
-}
-
-function PostTextArea({ form, onChange }) {
-  return (
-    <textarea
-      id="text"
-      name="text"
-      type="text"
-      placeholder="Text"
-      onChange={onChange}
-      value={form.text}
-      required
-    />
-  );
-}
-
-export { UsernameInput, PasswordInput, EmailInput, TitleInput, PostTextArea };
+export { UsernameInput, EmailInput, PasswordInput };

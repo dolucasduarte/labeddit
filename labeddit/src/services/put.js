@@ -1,11 +1,9 @@
-import api from "./api";
+import api, { token } from "./api";
 
 const voteOnPost = (body, id) => {
   api
     .put(`posts/${id}/vote`, body, {
-      headers: {
-        authorization: localStorage.getItem("token")
-      }
+      headers: { authorization: token }
     })
     .then(response => {})
     .catch(error => {
