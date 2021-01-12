@@ -1,15 +1,12 @@
 import styled, { css } from "styled-components";
 
-const PostCardContainer = styled.div`
+export const CardContainer = styled.div`
+  display: flex;
   width: 40em;
   min-height: 10em;
-
-  background-color: #ffffff;
-  border: 1px solid #cccccc;
   border-radius: 0.5em;
-  display: flex;
-
   margin-top: 1em;
+  border: 1px solid #cccccc;
 
   &:hover {
     border: 1px solid #898989;
@@ -17,7 +14,7 @@ const PostCardContainer = styled.div`
   }
 
   ${props =>
-    props.pathname !== "/" &&
+    props.pathname === `/${props.id}` &&
     css`
       margin-top: 0;
       border: none;
@@ -27,22 +24,24 @@ const PostCardContainer = styled.div`
     `}
 
   @media (max-width: 500px) {
-    width: 90vw;
+    width: 100vw;
     align-self: center;
   }
 `;
 
-const PostContentContainer = styled.div`
-  position: relative;
-  width: 100%;
-
-  border: none;
-  padding: 0.5em 1em 0em 1em;
-
+export const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  background-color: #ffffff;
+  padding-left: 1em;
+  padding-right: 0.5em;
+  border-radius: 0 0.5em 0.5em 0;
+  border: none;
 
-  time {
+  span {
+    margin-top: 0.7em;
     color: #787c7e;
     font-weight: 300;
     font-size: 0.8em;
@@ -50,27 +49,20 @@ const PostContentContainer = styled.div`
 
   h3 {
     font-weight: 600;
-    line-height: 1.3em;
   }
 
   article {
     font-weight: 300;
-    margin-bottom: 3em;
-    line-height: 1.5em;
-    word-wrap: break-word;
+    margin-bottom: 1em;
   }
 `;
 
-const CommentsCounterContainer = styled.div`
-  position: absolute;
-  bottom: 0;
-
-  margin-bottom: 0.5em;
-
+export const CommentsIconContainer = styled.div`
   display: flex;
   align-items: center;
   width: fit-content;
   padding: 0.2em;
+  margin-bottom: 0.5em;
 
   &:hover {
     background-color: #e8e8e8;
@@ -86,11 +78,9 @@ const CommentsCounterContainer = styled.div`
     color: #878a8c;
     font-weight: 600;
     font-size: 0.8em;
-  }
 
-  &:hover {
-    cursor: pointer;
+    &:hover {
+      cursor: pointer;
+    }
   }
 `;
-
-export { PostCardContainer, PostContentContainer, CommentsCounterContainer };

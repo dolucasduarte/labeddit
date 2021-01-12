@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { heartbeat } from "../../styles/keyframes";
 
-const LoadingContainer = styled.div`
+export const LoadingContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,6 +11,13 @@ const LoadingContainer = styled.div`
     height: 3em;
     animation: ${heartbeat} 1s infinite;
   }
-`;
 
-export { LoadingContainer };
+  span {
+    color: #ff4500;
+    font-weight: 600;
+    font-size: 0.8em;
+    margin-top: 1em;
+    text-align: center;
+    animation: ${heartbeat} 1s infinite;
+  }
+`;

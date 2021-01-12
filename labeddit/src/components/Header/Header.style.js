@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+<<<<<<< HEAD:labeddit/src/components/Header/Header.style.js
 const StyledHeader = styled.header`
   z-index: 2;
   top: 0;
@@ -12,6 +13,15 @@ const StyledHeader = styled.header`
   background-color: #ffffff;
   padding-left: 2em;
   padding-right: 2em;
+=======
+export const HeaderContainer = styled.header`
+  top: 0;
+  position: sticky;
+  width: 100vw;
+  height: 4em;
+  background-color: #ffffff;
+  margin-bottom: 2em;
+>>>>>>> 993da5a39915945b0912bcb243ef3138d10481c0:labeddit/src/styles/components/navbar.js
 
   display: flex;
   justify-content: space-between;
@@ -30,6 +40,10 @@ const Logo = styled.img`
 
 const ProfileContainer = styled.div`
   display: flex;
+<<<<<<< HEAD:labeddit/src/components/Header/Header.style.js
+=======
+  margin-right: 2em;
+>>>>>>> 993da5a39915945b0912bcb243ef3138d10481c0:labeddit/src/styles/components/navbar.js
 
   img {
     height: 1.6em;

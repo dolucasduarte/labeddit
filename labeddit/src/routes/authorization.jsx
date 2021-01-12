@@ -1,5 +1,9 @@
 import { Route, Redirect } from "react-router-dom";
+<<<<<<< HEAD
 import Header from "components/Header/Header";
+=======
+import Header from "../components/Header/Header";
+>>>>>>> 993da5a39915945b0912bcb243ef3138d10481c0
 
 function isAuthenticated() {
   const token = localStorage.getItem("token");

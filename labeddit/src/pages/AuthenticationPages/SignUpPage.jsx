@@ -1,20 +1,19 @@
 import {
-  AuthenticationPageContainer,
-  FormContainer,
+  PageContainer,
   LogoIcon,
-  Title,
-  Form
-} from "./AuthenticationPages.style";
+  AuthenticationForm,
+  AuthenticationFormTitle,
+  AuthenticationCTA
+} from "./AuthPages.style";
 import {
   UsernameInput,
   EmailInput,
   PasswordInput
-} from "components/Inputs/AuthenticationInputs";
-import { Button } from "components/Buttons/Buttons";
-import useForm from "hooks/useForm";
-import { signUp } from "services/post";
+} from "../../components/Inputs/AuthenticationInputs";
+import useForm from "../../hooks/useForm";
+import { signUp } from "../../services/post";
 import { Link, useHistory } from "react-router-dom";
-import logoIcon from "images/logo-icon.svg";
+import logoIcon from "../../images/logo-icon.svg";
 
 function SignUpPage() {
   const history = useHistory();
@@ -36,24 +35,21 @@ function SignUpPage() {
   };
 
   return (
-    <AuthenticationPageContainer>
-      <FormContainer>
-        <LogoIcon src={logoIcon} alt="Reddit logo icon" />
-
-        <Title>
-          <strong>Sign up</strong> and join the community.
-        </Title>
-        <Form onSubmit={submitSignUp}>
-          <UsernameInput onChange={onChange} form={form} />
-          <EmailInput onChange={onChange} form={form} />
-          <PasswordInput onChange={onChange} form={form} />
-          <Button callToAction="Sign up" />
-        </Form>
-        <p>
-          Already registered? <Link to="/login">Sign in</Link>
-        </p>
-      </FormContainer>
-    </AuthenticationPageContainer>
+    <PageContainer>
+      <LogoIcon src={logoIcon} alt="Reddit logo icon" />
+      <AuthenticationFormTitle>
+        <strong>Sign up</strong> and join the community.
+      </AuthenticationFormTitle>
+      <AuthenticationForm onSubmit={submitSignUp}>
+        <UsernameInput onChange={onChange} form={form} />
+        <EmailInput onChange={onChange} form={form} />
+        <PasswordInput onChange={onChange} form={form} />
+        <button>Sign up</button>
+      </AuthenticationForm>
+      <AuthenticationCTA>
+        Already registered? <Link to="/login">Sign in</Link>
+      </AuthenticationCTA>
+    </PageContainer>
   );
 }
 
