@@ -7,11 +7,6 @@ import { getFeed } from "services/get";
 
 function FeedPage() {
   const [posts, setPosts] = useState();
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    getFeed(setPosts, setIsLoading);
-  }, []);
 
   const renderPosts = () => {
     return posts
@@ -23,10 +18,14 @@ function FeedPage() {
       });
   };
 
+  useEffect(() => {
+    getFeed(setPosts, setIsLoading);
+  }, []);
+
   return (
     <PageContainer>
       <PostForm updatePosts={setPosts} />
-      {isLoading ? <Loading /> : renderPosts()}
+      {posts && posts.length > 0 ? renderPosts() : <Loading />}
     </PageContainer>
   );
 }

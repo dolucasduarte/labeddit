@@ -10,7 +10,7 @@ const signUp = (body, history) => {
       history.push("/");
     })
     .catch(error => {
-      alert("Couldn't sign up");
+      alert(error);
     });
 };
 
@@ -23,7 +23,7 @@ const signIn = (body, history) => {
       history.push("/");
     })
     .catch(error => {
-      alert("Couldn't sign in");
+      alert(error);
     });
 };
 
@@ -37,7 +37,7 @@ const createPost = (body, resetForm, updatePosts) => {
       getFeed(updatePosts);
     })
     .catch(error => {
-      alert("Couldn't create post");
+      alert(error);
     });
 };
 

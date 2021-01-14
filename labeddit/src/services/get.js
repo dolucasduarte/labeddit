@@ -1,6 +1,6 @@
 import api, { token } from "./api";
 
-const getFeed = (setData, setIsLoading) => {
+const getFeed = setData => {
   api
     .get("posts", {
       headers: {
@@ -9,11 +9,9 @@ const getFeed = (setData, setIsLoading) => {
     })
     .then(response => {
       setData(response.data.posts);
-      setIsLoading && setIsLoading(false);
     })
     .catch(error => {
-      alert("Erro ao carregar posts");
-      setIsLoading && setIsLoading(false);
+      alert(error);
     });
 };
 
@@ -29,7 +27,7 @@ const getPost = (id, setData, setIsLoading) => {
       setIsLoading && setIsLoading(false);
     })
     .catch(error => {
-      alert("Pane no");
+      alert(error);
       setIsLoading && setIsLoading(false);
     });
 };
