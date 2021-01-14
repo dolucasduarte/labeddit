@@ -19,7 +19,7 @@ function FeedPage() {
   };
 
   useEffect(() => {
-    getFeed(setPosts, setIsLoading);
+    getFeed(setPosts);
   }, []);
 
   return (
