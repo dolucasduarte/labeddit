@@ -2,7 +2,7 @@ import { PageContainer } from "styles/pageContainer";
 import PostForm from "components/PostForm/PostForm";
 import PostCard from "components/PostCard/PostCard";
 import Loading from "components/Loading/Loading";
-import { useState, useEffect } from "react";
+import { useState, useLayoutEffect } from "react";
 import { getFeed } from "services/get";
 
 function FeedPage() {
@@ -18,7 +18,7 @@ function FeedPage() {
       });
   };
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     getFeed(setPosts);
   }, []);
 

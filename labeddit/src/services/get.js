@@ -1,10 +1,10 @@
-import api, { token } from "./api";
+import api from "./api";
 
 const getFeed = setData => {
   api
     .get("posts", {
       headers: {
-        authorization: token
+        authorization: localStorage.getItem("token")
       }
     })
     .then(response => {
@@ -19,7 +19,7 @@ const getPost = (id, setData, setIsLoading) => {
   api
     .get(`posts/${id}`, {
       headers: {
-        authorization: token
+        authorization: localStorage.getItem("token")
       }
     })
     .then(response => {

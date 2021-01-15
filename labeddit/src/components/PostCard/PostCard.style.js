@@ -54,6 +54,7 @@ export const ContentContainer = styled.div`
   article {
     font-weight: 300;
     margin-bottom: 1em;
+    line-height: 1.5em;
   }
 `;
 
