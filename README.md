@@ -15,7 +15,7 @@ O design e o desenvolvimento ficaram 100% sob minha responsabilidade.
 
 ## funcionalidades
 
-- Cadastro e login
+- Cadastro e login (sem validações)
 - Criar uma publicação
 - Votar nas publicações, como no Reddit
 - Comentar em uma publicação
