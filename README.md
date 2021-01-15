@@ -6,11 +6,11 @@ http://dolucasduarte-labeddit.surge.sh/
 
 ## sobre o projeto
 
-Esse foi um dos primeiros projetos individuais de front-end que eu fiz no bootcamp da Labenu.
+Esse foi um dos primeiros projetos individuais de front-end que eu fiz no bootcamp da Labenu. 🏅
 
 A proposta era criar um site com as mecânicas do Reddit a partir de uma API disponibilizada pelo curso.
 
-O design e o desenvolvimento ficaram 100% por minha conta.
+O design e o desenvolvimento ficaram 100% por minha conta. 🌀
 
 O que mais busquei praticar no projeto foram organização e componentização.
 
