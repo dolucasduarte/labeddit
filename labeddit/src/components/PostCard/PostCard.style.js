@@ -24,7 +24,7 @@ export const CardContainer = styled.div`
     `}
 
   @media (max-width: 500px) {
-    width: 100vw;
+    width: 90vw;
     align-self: center;
   }
 `;
